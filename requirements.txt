@@ -1,4 +1,4 @@
-# Default Le Wagon setup
+streamlit==0.75.0
 numpy
 pandas
 matplotlib
