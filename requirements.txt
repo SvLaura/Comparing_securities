@@ -1,0 +1,25 @@
+# Default Le Wagon setup
+numpy
+pandas
+matplotlib
+
+yahoo_fin
+dash
+colorlover
+jupyter_dash
+
+nbdime
+streamlit
+requests
+plotly
+json
+
+
+datetime
+feedparser
+ftplib
+io
+json
+pandas
+requests
+requests_html
