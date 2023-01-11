@@ -8,12 +8,6 @@ dash
 colorlover
 jupyter_dash
 
-coremltools
-diffusers[torch]
-torch
-transformers
-scipy
-
 requests
 plotly
 json
