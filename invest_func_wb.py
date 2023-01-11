@@ -3,12 +3,14 @@ from lxml import html
 import requests
 import numpy as np
 import pandas as pd
+import time
 
 def digit_abbr(digit):
     m = {'K': 3, 'M': 6, 'B': 9, 'T': 12}
-    abbr = digit[-1]
-    if abbr in m:
-        return int(float(digit[:-1]) * 10 ** m[abbr])
+    if type(digit) == str:
+        abbr = digit[-1]
+        if abbr in m:
+            return int(float(digit[:-1]) * 10 ** m[abbr])
     else:
         return float(digit)
 
@@ -28,37 +30,39 @@ def page_to_df(url, page_type):
         'Referrer': 'https://google.com',
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
     }
-
+    
+    time.sleep(8)
     page = requests.get(url, headers=headers)
-    tree = html.fromstring(page.content)
-    tree.xpath("//h1/text()")
+    if page.status_code == 200:  
+        tree = html.fromstring(page.content)
+        tree.xpath("//h1/text()")
 
-    if page_type != 'statistic':
-        table_rows = tree.xpath("//div[contains(@class, 'D(tbr)')]")
-        assert len(table_rows) > 0
-        parsed_rows = []
-        for table_row in table_rows:
-            parsed_row = []
-            el = table_row.xpath("./div")
-            none_count = 0
-            for rs in el:
-                try:
-                    (text,) = rs.xpath('.//span/text()[1]')
-                    parsed_row.append(text)
-                except ValueError:
-                    parsed_row.append(np.NaN)
-                    none_count += 1
-            if (none_count < 4):
-                parsed_rows.append(parsed_row)
+        if page_type != 'statistic':
+            table_rows = tree.xpath("//div[contains(@class, 'D(tbr)')]")
+            assert len(table_rows) > 0
+            parsed_rows = []
+            for table_row in table_rows:
+                parsed_row = []
+                el = table_row.xpath("./div")
+                none_count = 0
+                for rs in el:
+                    try:
+                        (text,) = rs.xpath('.//span/text()[1]')
+                        parsed_row.append(text)
+                    except ValueError:
+                        parsed_row.append(np.NaN)
+                        none_count += 1
+                if (none_count < 4):
+                    parsed_rows.append(parsed_row)
 
-    if page_type == 'statistic':
-        table_rows = tree.xpath("//td[contains(@class, 'Fw(500) Ta(end) Pstart(10px) Miw(60px)')]")
-        assert len(table_rows) > 0
-        parsed_rows = []
-        for table_row in table_rows:
-            parsed_rows.append(table_row.text)
-    df = pd.DataFrame(parsed_rows)
-    return df
+        if page_type == 'statistic':
+            table_rows = tree.xpath("//td[contains(@class, 'Fw(500) Ta(end) Pstart(10px) Miw(60px)')]")
+            assert len(table_rows) > 0
+            parsed_rows = []
+            for table_row in table_rows:
+                parsed_rows.append(table_row.text)
+        df = pd.DataFrame(parsed_rows)
+        return df
 
 
 
@@ -85,7 +89,9 @@ def fin_data_points_wb(tickets):
         df = page_to_df(url, page_type)
 
         Company_Capitalization_abbr = df.iloc[0,0]
-        Company_Capitalization = digit_abbr(Company_Capitalization_abbr)
+        if Company_Capitalization_abbr:
+                Company_Capitalization = digit_abbr(Company_Capitalization_abbr)
+        
         ROA = df.iloc[42,0]
         ROE = df.iloc[43,0]
         ProfitMargin = df.iloc[40,0]
@@ -117,8 +123,10 @@ def fin_data_points_wb(tickets):
 
         #fill tbl:
         Company_Equity =  float(Company_Assets) - float(Company_Liabilities)
-        PB = Company_Capitalization/abs(Company_Equity)
-        PE = Company_Capitalization/Company_NetProfit
+        if Company_Equity:
+            PB = Company_Capitalization/abs(Company_Equity)
+        if Company_NetProfit:
+            PE = Company_Capitalization/Company_NetProfit
         Company_Data['P/B'].loc[company] = round(PB,4)
         Company_Data['P/E'].loc[company] = round(PE,4)
         Company_Data['ROE'].loc[company] = ROE
