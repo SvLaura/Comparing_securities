@@ -1,5 +1,4 @@
 
-#import yahoo_fin as yfin
 import yahoo_fin
 from yahoo_fin import stock_info
 import numpy as np
