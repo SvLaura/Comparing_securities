@@ -1,5 +1,5 @@
 
-import yahoo_fin as yfin
+#import yahoo_fin as yfin
 import yahoo_fin.stock_info as st
 import numpy as np
 import pandas as pd
