@@ -1,5 +1,5 @@
 
-import yahoo_fin as yfin 
+import yahoo_fin as yfin
 import yahoo_fin.stock_info as st
 import numpy as np
 import pandas as pd
@@ -7,11 +7,12 @@ import matplotlib.pyplot as plt
 
 # for Conditional Formatting
 import dash
-import dash_table
-import dash_html_components as html
+from dash import dash_table
+from dash import html
 import colorlover
 from jupyter_dash import JupyterDash
-    
+import csv
+
 # Functions
 
 def mf_iserror(func, *args, **kw):
