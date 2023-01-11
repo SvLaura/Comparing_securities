@@ -3,7 +3,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 import numpy as np
-from invest_func import yfin_mprices, yfin_mreturns, highlight_thebest_fin, Summary_Statistic
+from invest_func import *
 from invest_func_wb import fin_data_points_wb
 
 
