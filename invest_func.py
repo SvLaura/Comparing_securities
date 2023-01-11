@@ -1,6 +1,6 @@
 
 import yahoo_fin as yfin
-import yahoo_fin.stock_info as st
+import yahoo_fin.stock_info as st_yf
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -64,14 +64,14 @@ def fin_data_points(tickets):
         company = tickets[i]
         
         #get data from Yahoo Finance:
-        info = mf_iserror(st.get_company_info, company)
+        info = mf_iserror(st_yf.get_company_info, company)
         #forecast = st.get_analysts_info(company)
-        balance_tbl = st.get_balance_sheet(company)
-        income_tbl = st.get_income_statement(company)
-        stats_tbl = st.get_stats(company)
-        fins = st.get_financials(company, yearly = True, quarterly = False)
+        balance_tbl = st_yf.get_balance_sheet(company)
+        income_tbl = st_yf.get_income_statement(company)
+        stats_tbl = st_yf.get_stats(company)
+        fins = st_yf.get_financials(company, yearly = True, quarterly = False)
         fin_tbl = fins['yearly_income_statement']
-        qd = st.get_quote_data(company)
+        qd = st_yf.get_quote_data(company)
         
         Company_Capitalization = qd['marketCap']
         Company_Assets = company_finance_fn(balance_tbl,"totalAssets")
@@ -165,7 +165,7 @@ def yfin_dprices(lt, n_years = 5, n_interval = "1d"):
     for l in lt:
         #prices[l] = yf.download(l,dt_minus_nyears,dt)['Adj Close']         
         #prices from yahoo_fin:
-        prices[l] = st.get_data(l, start_date = dt_minus_nyears, end_date = dt, interval = n_interval)['adjclose']
+        prices[l] = st_yf.get_data(l, start_date = dt_minus_nyears, end_date = dt, interval = n_interval)['adjclose']
     return prices
 
 
