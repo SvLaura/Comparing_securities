@@ -46,6 +46,8 @@ btn = str.button('Analyze')
 if (btn) and (len(option_symbol) == 3):
     str.write(option_symbol)
     lt = option_symbol
+    
+    str.write(type(lt))
 
     # Monthly prices for the last year, 5 and 10 years
     pricies_monthly = invest_func.yfin_mprices(lt,10)
