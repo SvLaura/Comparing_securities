@@ -1,6 +1,6 @@
 
-import yahoo_fin
-from yahoo_fin import stock_info
+import yahoo_fin as yfin
+import yahoo_fin.stock_info as st
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -64,14 +64,14 @@ def fin_data_points(tickets):
         company = tickets[i]
         
         #get data from Yahoo Finance:
-        info = mf_iserror(stock_info.get_company_info, company)
-        #forecast = stock_info.get_analysts_info(company)
-        balance_tbl = stock_info.get_balance_sheet(company)
-        income_tbl = stock_info.get_income_statement(company)
-        stats_tbl = stock_info.get_stats(company)
-        fins = stock_info.get_financials(company, yearly = True, quarterly = False)
+        info = mf_iserror(st.get_company_info, company)
+        #forecast = st.get_analysts_info(company)
+        balance_tbl = st.get_balance_sheet(company)
+        income_tbl = st.get_income_statement(company)
+        stats_tbl = st.get_stats(company)
+        fins = st.get_financials(company, yearly = True, quarterly = False)
         fin_tbl = fins['yearly_income_statement']
-        qd = stock_info.get_quote_data(company)
+        qd = st.get_quote_data(company)
         
         Company_Capitalization = qd['marketCap']
         Company_Assets = company_finance_fn(balance_tbl,"totalAssets")
