@@ -7,14 +7,3 @@ yahoo_fin
 dash
 colorlover
 jupyter_dash
-
-nbdime
-requests
-plotly
-json
-datetime
-feedparser
-ftplib
-io
-json
-requests_html
