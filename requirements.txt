@@ -7,7 +7,3 @@ yahoo_fin
 dash
 colorlover
 jupyter_dash
-
-requests
-plotly
-json
