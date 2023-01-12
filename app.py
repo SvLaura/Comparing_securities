@@ -41,8 +41,14 @@ df = pd.DataFrame({
 
 btn = str.button('Analyze')
 
-
-
+#check
+if btn:
+    lt = ["MSFT","AAPL"]
+    str.header('Monthly Prices for the last 10 years!')
+    pricies_monthly = invest_func.yfin_mprices(lt,10)
+    chart_data_prices = pricies_monthly.tail(12 * 10)
+###
+    
 if (btn) and (len(option_symbol) == 3):
     str.write(option_symbol)
     lt = option_symbol
