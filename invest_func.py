@@ -12,8 +12,6 @@ from dash import html
 import colorlover
 from jupyter_dash import JupyterDash
 import csv
-import pandas as pd
-import numpy as np
 
 # Functions
 def test_stremlit(tickets_lt):
