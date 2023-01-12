@@ -16,8 +16,7 @@ import csv
 # Functions
 def test_stremlit(tickets_lt):
     l = len(tickets_lt)
-    df = pd.DataFrame(np.random.randn(50, l),\
-                      columns=('col_' + i for i in tickets_lt))
+    df = pd.DataFrame(tickets_lt)
     return df
     
     
