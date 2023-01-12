@@ -46,7 +46,7 @@ if btn:
     lt = ["MSFT","AAPL"]
     str.header('Monthly Prices for the last 10 years!')
     df_test = invest_func.test_stremlit(lt)
-    st.dataframe(df_test) 
+    str.dataframe(df_test) 
     #pricies_monthly = invest_func.yfin_mprices(lt,10)
     #chart_data_prices = pricies_monthly.tail(12 * 10)
     str.line_chart(df_test)
