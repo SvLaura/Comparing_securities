@@ -41,7 +41,7 @@ df_test = invest_func.test_stremlit(lt)
 str.dataframe(df_test) 
     #pricies_monthly = invest_func.yfin_mprices(lt,10)
     #chart_data_prices = pricies_monthly.tail(12 * 10)
-str.line_chart(df_test)
+#str.line_chart(df_test)
 ###
 
 '''
