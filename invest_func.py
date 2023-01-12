@@ -12,9 +12,19 @@ from dash import html
 import colorlover
 from jupyter_dash import JupyterDash
 import csv
+import pandas as pd
+import numpay as np
 
 # Functions
-
+def test_stremlit(tickets_lt):
+    l = len(tickets_lt)
+    df = pd.DataFrame(np.random.randn(50, l),\
+   columns=('col_' % i for i in tickets_lt))
+    return df
+    
+    
+    
+    
 def mf_iserror(func, *args, **kw):
     exception = kw.pop('exception', Exception)
     try:
