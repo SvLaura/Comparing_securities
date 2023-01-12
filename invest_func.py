@@ -13,7 +13,7 @@ import colorlover
 from jupyter_dash import JupyterDash
 import csv
 import pandas as pd
-import numpay as np
+import numpy as np
 
 # Functions
 def test_stremlit(tickets_lt):
