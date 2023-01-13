@@ -3,7 +3,7 @@ import streamlit as str
 import pandas as pd
 import invest_func
 import invest_func_wb
-
+import test_func
 
 symb_df = pd.read_csv('data/symbols.csv')
 
@@ -37,7 +37,7 @@ btn = str.button('Analyze')
 #if btn:
 lt = ["MSFT","AAPL"]
 str.header('Monthly Prices for the last 10 years!')
-df_test = invest_func.test_stremlit(lt)
+df_test = test_func.test_stremlit(lt)
 str.dataframe(df_test) 
     #pricies_monthly = invest_func.yfin_mprices(lt,10)
     #chart_data_prices = pricies_monthly.tail(12 * 10)
