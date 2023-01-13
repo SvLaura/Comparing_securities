@@ -48,4 +48,4 @@ df_test = pd.DataFrame(
         }
     )
 str.header('---')
-str.dataframe(df_test)
+str.table(df_test)
