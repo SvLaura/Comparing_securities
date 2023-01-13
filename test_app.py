@@ -3,10 +3,10 @@ import streamlit as str
 import pandas as pd
 
 
-def test_stremlit(tickets_lt):
-    l = len(tickets_lt)
-    df = pd.DataFrame(tickets_lt)
-    return df
+#def test_stremlit(tickets_lt):
+    #l = len(tickets_lt)
+    #df = pd.DataFrame(tickets_lt)
+    #return df
 
 symb_df = pd.read_csv('data/symbols.csv')
 
@@ -40,8 +40,7 @@ btn = str.button('Analyze')
 if btn:
     str.write("click")
 lt = ["MSFT","AAPL"]
-str.write(lt)
 str.header('Monthly Prices for the last 10 years!')
-df_test = test_stremlit(lt)
+df_test = pd.DataFrame(lt)
 str.write(df_test)
 str.dataframe(df_test)
