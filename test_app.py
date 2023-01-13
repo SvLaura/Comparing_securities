@@ -39,9 +39,13 @@ btn = str.button('Analyze')
 #check
 if btn:
     str.write("click")
-lt = ["MSFT","AAPL"]
+lt = ["MSFT","AAPL","TT","UIP"]
 str.header('Monthly Prices for the last 10 years!')
-df_test = pd.DataFrame(lt)
-#str.write(df_test)
+df_test = pd.DataFrame(
+        {
+            "first column": lt,
+            "second column": [10, 20, 30, 40],
+        }
+    )
 str.header('---')
-str.table(df_test)
+str.dataframe(df_test)
