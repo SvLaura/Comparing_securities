@@ -38,10 +38,10 @@ btn = str.button('Analyze')
 
 #check
 if btn:
-    st.write("click")
+    str.write("click")
 lt = ["MSFT","AAPL"]
-st.write(lt)
+str.write(lt)
 str.header('Monthly Prices for the last 10 years!')
 df_test = test_stremlit(lt)
-st.write(df_test)
+str.write(df_test)
 str.dataframe(df_test)
