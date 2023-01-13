@@ -48,4 +48,5 @@ df_test = pd.DataFrame(
         }
     )
 str.header('---')
-str.table(df_test)
+str.bar_chart(df_test)
+str.header('---')
