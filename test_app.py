@@ -42,5 +42,6 @@ if btn:
 lt = ["MSFT","AAPL"]
 str.header('Monthly Prices for the last 10 years!')
 df_test = pd.DataFrame(lt)
-str.write(df_test)
-str.dataframe(df_test)
+#str.write(df_test)
+str.header('---')
+str.table(df_test)
