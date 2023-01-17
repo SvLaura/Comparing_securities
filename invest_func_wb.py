@@ -31,7 +31,7 @@ def page_to_df(url, page_type):
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36'
     }
     
-    time.sleep(8)
+    time.sleep(4)
     page = requests.get(url, headers=headers)
     if page.status_code == 200:  
         tree = html.fromstring(page.content)
