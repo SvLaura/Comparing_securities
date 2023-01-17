@@ -33,16 +33,11 @@ if len(option_symbol) > 3:
 btn = str.button('Analyze')
 
 if (btn) and (len(option_symbol) == 3):
-    str.write(option_symbol)
     lt = option_symbol
-    
-    str.write(type(lt))
 
     # Monthly prices for the last year, 5 and 10 years
     pricies_monthly = invest_func.yfin_mprices(lt,10)
-    
-    str.write(pricies_monthly)
-    
+     
     chart_data_prices = pricies_monthly.tail(12 * 10)
     str.header('Monthly Prices for the last 10 years')
     str.line_chart(chart_data_prices)
@@ -56,7 +51,6 @@ if (btn) and (len(option_symbol) == 3):
     str.table(invest_func.Summary_Statistic(lt,10))
 
     str.text('Please wait - calculating the main finance metrics')
-    #lt = ["MSFT","AAPL","IBM"]
     Company_Data = invest_func_wb.fin_data_points_wb(lt)
     str.table(Company_Data.style.apply(invest_func.highlight_thebest_fin))
 else:
