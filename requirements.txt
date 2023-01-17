@@ -1,2 +1,17 @@
 streamlit
 pandas
+
+
+matplotlib
+
+yahoo_fin
+dash
+colorlover
+jupyter_dash
+
+setuptools
+coremltools
+diffusers[torch]
+torch
+transformers
+scipy
