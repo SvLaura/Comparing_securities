@@ -1,15 +1,2 @@
 streamlit==0.75.0
-setuptools
 pandas
-matplotlib
-
-yahoo_fin
-dash
-colorlover
-jupyter_dash
-
-coremltools
-diffusers[torch]
-torch
-transformers
-scipy
