@@ -3,7 +3,6 @@ import streamlit as str
 import pandas as pd
 import invest_func
 import invest_func_wb
-import test_func
 
 symb_df = pd.read_csv('data/symbols.csv')
 
@@ -33,19 +32,6 @@ if len(option_symbol) > 3:
 
 btn = str.button('Analyze')
 
-#check
-#if btn:
-lt = ["MSFT","AAPL"]
-str.header('Monthly Prices for the last 10 years!')
-df_test = test_func.test_stremlit(lt)
-str.dataframe(df_test) 
-    #pricies_monthly = invest_func.yfin_mprices(lt,10)
-    #chart_data_prices = pricies_monthly.tail(12 * 10)
-#str.line_chart(df_test)
-###
-
-'''
-    
 if (btn) and (len(option_symbol) == 3):
     str.write(option_symbol)
     lt = option_symbol
@@ -76,4 +62,4 @@ if (btn) and (len(option_symbol) == 3):
 else:
     if btn:
         str.error('Choose only 3 companies!')
-'''
+
