@@ -11,7 +11,7 @@ user_data_sector = list(dict.fromkeys(user_data_sector))
 
 
 
-str.title('Comparison and analysis of securities of selected companies')
+str.title('Financial Performance of selected companies.')
 
 option_sector = str.selectbox(
     'Select sector',
